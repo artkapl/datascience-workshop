@@ -32,7 +32,7 @@ We use markdown editor [StackEdit](https://stackedit.io/editor) and markdown con
 
 ### To-Do List
 
-(For beginners)
+(For beginners)  
 Read about:
 - string formatting in Python 3 - [String operations](https://docs.python.org/3.3/library/string.html)
 - Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number)
