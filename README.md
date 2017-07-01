@@ -4,6 +4,8 @@
 
 ### Mindmap
 
+![mindmap](https://github.com/arthurkaplan/datascience-workshop/blob/master/datascience-workshop-Mind-Map.jpg "Mindmap to structure our project")
+
 ### Tools
 
 [Github](https://github.com/) allows us to collaborate on projects.
