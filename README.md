@@ -17,6 +17,7 @@ Data sets:
 - [Worldbank data](data.worldbank.org)
 - [Data sets for data science](https://www.dataquest.io/blog/free-datasets-for-projects/)
 - [Open Refine](http://openrefine.org/) - edit/cleanup data sets
+- [Plotly](https://plot.ly) - Plot/visualize data
 
 ### Basic programming techniques
 
