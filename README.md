@@ -16,6 +16,9 @@ We use Python as our main programming language for this purpose.
 
 ### Basic programming techniques
 
+CSV 
+- [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) - extract, transform, load
+
 ### Libraries
 
 [csv](https://docs.python.org/3/library/csv.html)
