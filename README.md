@@ -21,7 +21,7 @@ We use Python as our main programming language for this purpose.
 ### Documentation
 
 Here is how to write easy documentation in [Markdown](https://daringfireball.net/projects/markdown).  
-We use markdown converter [pandoc](http://pandoc.org/).
+We use markdown editor [StackEdit](https://stackedit.io/editor) and markdown converter [pandoc](http://pandoc.org/).
 
 ### Debugging
 
