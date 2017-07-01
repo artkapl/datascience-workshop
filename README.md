@@ -25,4 +25,4 @@ We use markdown converter [pandoc](http://pandoc.org/).
 
 ### Books and references
 
-- Jacobs, J., & Rudis, B. (2014). Data-Driven Security: Analysis, Visualization and Dashboards. John Wiley & Sons.
+- Jacobs, J., & Rudis, B. (2014). *Data-Driven Security: Analysis, Visualization and Dashboards*. John Wiley & Sons.
