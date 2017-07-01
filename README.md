@@ -12,7 +12,8 @@ We use Python as our main programming language for this purpose.
 ### Tools
 
 [Github](https://github.com/) allows us to collaborate on projects.  
-[Getting started guide](https://guides.github.com/activities/hello-world/)
+[Getting started guide](https://guides.github.com/activities/hello-world/)  
+
 Data sets:
 - [Worldbank data](data.worldbank.org)
 - [Data sets for data science](https://www.dataquest.io/blog/free-datasets-for-projects/)
