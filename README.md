@@ -13,6 +13,10 @@ We use Python as our main programming language for this purpose.
 
 [Github](https://github.com/) allows us to collaborate on projects.  
 [Getting started guide](https://guides.github.com/activities/hello-world/)
+Data sets:
+- [Worldbank data](data.worldbank.org)
+- [Data sets for data science](https://www.dataquest.io/blog/free-datasets-for-projects/)
+- [Open Refine](http://openrefine.org/) - edit/cleanup data sets
 
 ### Basic programming techniques
 
@@ -43,6 +47,14 @@ Read about:
 - [ ] Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number), Traceroute, announcing IP adresses
 - [ ] [Unix time](https://en.wikipedia.org/wiki/Unix_time): date format "epoch" --> seconds from Jan 1, 1970. A common time stamp format in IT.
 
+## Homework 
+
+(Check pull request for data set)
+Data has timestamp, IP, ASN, country
+
+- count facets (= nominal data, e.g. sex, eye color) of selected columns in data & print them
+- Descriptive stat for rows in csv - mean, median, std dev & print
+Hint: look at dicts, sets and lists
 
 ### Typical mistakes
 
