@@ -21,3 +21,8 @@ Here is how to write easy documentation in [Markdown](https://daringfireball.net
 We use markdown converter [pandoc](http://pandoc.org/).
 
 ### Debugging
+
+
+### Books and references
+
+- Jacobs, J., & Rudis, B. (2014). Data-Driven Security: Analysis, Visualization and Dashboards. John Wiley & Sons.
