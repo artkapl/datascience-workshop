@@ -18,10 +18,12 @@ We use Python as our main programming language for this purpose.
 
 ### Libraries
 
+[csv](https://docs.python.org/3/library/csv.html)
+
 ### Documentation
 
 Here is how to write easy documentation in [Markdown](https://daringfireball.net/projects/markdown).  
-We use markdown editor [StackEdit](https://stackedit.io/editor) and markdown converter [pandoc](http://pandoc.org/).
+We use markdown editor [SDingus](https://daringfireball.net/projects/markdown/dingus) and markdown converter [pandoc](http://pandoc.org/).
 
 ### Debugging
 
