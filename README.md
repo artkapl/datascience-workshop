@@ -34,6 +34,6 @@ We use markdown editor [StackEdit](https://stackedit.io/editor) and markdown con
 
 (For beginners)  
 Read about:
-- string formatting in Python 3 - [String operations](https://docs.python.org/3.3/library/string.html)
-- Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number), Traceroute, announcing IP adresses
-- [Unix time](https://en.wikipedia.org/wiki/Unix_time): date format "epoch" --> seconds from Jan 1, 1970. A common time stamp format in IT.
+- [ ] string formatting in Python 3 - [String operations](https://docs.python.org/3.3/library/string.html)
+- [ ] Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number), Traceroute, announcing IP adresses
+- [ ] [Unix time](https://en.wikipedia.org/wiki/Unix_time): date format "epoch" --> seconds from Jan 1, 1970. A common time stamp format in IT.
