@@ -39,3 +39,9 @@ Read about:
 - [ ] string formatting in Python 3 - [String operations](https://docs.python.org/3.3/library/string.html)
 - [ ] Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number), Traceroute, announcing IP adresses
 - [ ] [Unix time](https://en.wikipedia.org/wiki/Unix_time): date format "epoch" --> seconds from Jan 1, 1970. A common time stamp format in IT.
+
+
+### Typical mistakes
+
+Reading a file with csv.reader returns strings - need to cast as int
+"Off by one" -> index starts at 1 in csv
