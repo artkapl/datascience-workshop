@@ -2,6 +2,9 @@
 
 ## Small internal datascience workshop
 
+We use this workshop to learn about data science using real-life examples.  
+We use Python as our main programming language for this purpose.
+
 ### Mindmap
 
 ![mindmap](https://github.com/arthurkaplan/datascience-workshop/blob/master/datascience-workshop-Mind-Map.jpg "Mindmap to structure our project")
