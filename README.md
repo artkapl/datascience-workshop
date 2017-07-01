@@ -7,7 +7,7 @@ We use Python as our main programming language for this purpose.
 
 ### Mindmap
 
-![mindmap](https://github.com/arthurkaplan/datascience-workshop/blob/master/datascience-workshop-Mind-Map.jpg "Mindmap to structure our project")  
+![mindmap](https://github.com/OreoCassowary/datascience-workshop/blob/master/datascience-workshop-Mind-Map.jpg "Mindmap to structure our project")  
 Link to mindmap: (https://bubbl.us/010902974515863474)
 
 ### Tools
