@@ -3,12 +3,12 @@
 ## Small internal datascience workshop
 
 We use this workshop to learn about data science using real-life examples.  
-We use Python as our main programming language for this purpose.
+We use Python as our main programming language for this purpose.  
 
 ### Mindmap
 
 ![mindmap](https://github.com/OreoCassowary/datascience-workshop/blob/master/datascience-workshop-Mind-Map.jpg "Mindmap to structure our project")  
-Link to mindmap: (https://bubbl.us/010902974515863474)
+Link to mindmap: (https://bubbl.us/010902974515863474)  
 
 ### Tools
 
@@ -28,12 +28,12 @@ CSV
 
 ### Libraries
 
-[csv](https://docs.python.org/3/library/csv.html)
+[csv](https://docs.python.org/3/library/csv.html)  
 
 ### Documentation
 
 Here is how to write easy documentation in [Markdown](https://daringfireball.net/projects/markdown).  
-We use markdown editor [SDingus](https://daringfireball.net/projects/markdown/dingus) and markdown converter [pandoc](http://pandoc.org/).
+We use markdown editor [SDingus](https://daringfireball.net/projects/markdown/dingus) and markdown converter [pandoc](http://pandoc.org/).  
 
 ### Debugging
 
@@ -52,7 +52,7 @@ Read about:
 
 ## Homework 
 
-(Check pull request for data set)
+(Check pull request for data set)  
 Data has timestamp, IP, ASN, country
 
 - count facets (= nominal data, e.g. sex, eye color) of selected columns in data & print them
@@ -61,5 +61,5 @@ Hint: look at dicts, sets and lists
 
 ### Typical mistakes
 
-Reading a file with csv.reader returns strings - need to cast as int
+Reading a file with csv.reader returns strings - need to cast as int  
 "Off by one" -> index starts at 1 in csv
