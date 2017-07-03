@@ -22,4 +22,4 @@ with open('../example-data/simple-test-example-bgp-announcements.csv') as csvfil
         except:
             print("Warning. ASN should be an int. But found ('%s'). Ignoring line %d" %(row[2], r.line_num))
             continue
-        print("ts: %d, prefix=%s, asn=%s" %(ts, prefix, ans))
+        print("ts: %d, prefix=%s, asn=%s" %(ts, prefix, asn))
