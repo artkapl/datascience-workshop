@@ -18,8 +18,10 @@ Link to mindmap: (https://bubbl.us/010902974515863474)
 Data sets:
 - [Worldbank data](data.worldbank.org)
 - [Data sets for data science](https://www.dataquest.io/blog/free-datasets-for-projects/)
+- [Berkeley Earth](http://berkeleyearth.org/data/) - Global temperature data
 - [Open Refine](http://openrefine.org/) - edit/cleanup data sets
 - [Plotly](https://plot.ly) - Plot/visualize data
+
 
 ### Basic programming techniques
 
