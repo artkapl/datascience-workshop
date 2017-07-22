@@ -46,21 +46,11 @@ We use markdown editor [SDingus](https://daringfireball.net/projects/markdown/di
 
 ### To-Do List
 
-(For beginners)  
-Read about:
-- [ ] string formatting in Python 3 - [String operations](https://docs.python.org/3.3/library/string.html)
-- [ ] more elegant string formatting (requires Python 3.6 or higher) [f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
-- [ ] Theory behind IP adresses, [ASN](https://en.wikipedia.org/wiki/Autonomous_System_Number) (autonomous system number), Traceroute, announcing IP adresses
-- [ ] [Unix time](https://en.wikipedia.org/wiki/Unix_time): date format "epoch" --> seconds from Jan 1, 1970. A common time stamp format in IT.
+See to-do list in issues.
 
 ## Homework 
 
-(Check pull request for data set)  
-Data has timestamp, IP, ASN, country
-
-- count facets (= nominal data, e.g. sex, eye color) of selected columns in data & print them
-- Descriptive stat for rows in csv - mean, median, std dev & print
-Hint: look at dicts, sets and lists
+See latest homework issue.
 
 ### Typical mistakes
 
