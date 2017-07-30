@@ -2,7 +2,6 @@
 """
 Created on Sat Jul 22 16:56:59 2017
 """
-
 # climate change project
 
 #files required:
@@ -25,13 +24,11 @@ Created on Sat Jul 22 16:56:59 2017
 
 # merge files {station ID, [temp, lat, long, country]
 
-
 import csv
 from pprint import pprint
-from collections import Counter
-from math import log, trunc
-# station_ID_dict contains key=station_ID, value=[lat, lon, country]
-station_ID_dict = dict()
+from collections import Counter, defaultdict
+from math import trunc
+
 debug = False
 
 def make_station_ID_dict(infile='site_detail.csv'):
@@ -40,25 +37,21 @@ def make_station_ID_dict(infile='site_detail.csv'):
     infile = filename
     returns station_ID_dict
     '''
-    station_ID_dict = dict()
+    station_ID_dict = defaultdict(list)
 
     with open('site_detail.csv') as sitefile:
         site_detail_reader = csv.reader(sitefile, delimiter=';', quotechar='"')
-
         
-        for row in site_detail_reader:
+        for station_ID, _t1, lat, lon, _t2, _t3, _t3, _t4, country, *_rest in site_detail_reader:
 
-            if row[0][0] == '%':
-                continue
-            station_ID = int(row[0])
-            latitude = float(row[2])
-            longitude = float(row[3])
-            country = row[8].rstrip()
-            
-            station_ID_dict[station_ID] = station_ID_dict.get(station_ID, [latitude, longitude, country])
+            if '%' in station_ID:
+                continue #skip header
+            station_ID_dict[station_ID].extend([float(lat), float(lon), country.rstrip()])
         if debug:
-            print(station_ID_dict)
+            pprint(station_ID_dict)
+            
         return station_ID_dict
+
 
 def make_measurement_freq_file(station_ID_dict, outfile='station measurement frequency.csv', datafile='data.csv'):    
     """
@@ -66,47 +59,33 @@ def make_measurement_freq_file(station_ID_dict, outfile='station measurement fre
     input station_ID_dict, outfile, datafile
     returns dict {station_ID: {year: measurements}}
     """
-    temp_measurements = dict()
+    temp_measurements = defaultdict(lambda : defaultdict(list))
 
-    outfile = open('station measurement frequency.csv', "w", newline='')
+    outfile = open('station measurement frequency 2.csv', "w", newline='')
          
     with open('data.csv') as datafile:
         data_reader = csv.reader(datafile, delimiter=';', quotechar='"')
         data_writer = csv.writer(outfile, delimiter=',', quotechar='"')  
         data_writer.writerow(['station_ID', 'num of measurements 1961-2000', 'lat', 'lon'])
-    
-        new_count = 0
+            
         temp_counter = Counter()
         
-        for row in data_reader:
-            if row[0][0] == '%':
+        for station_ID, _t1, year, temperature, *_rest in data_reader:
+            if '%' in station_ID:
                 continue   # skip header     
-                
-            station_ID = int(row[0])
-            year = trunc(float(row[2]))
-            temperature = float(row[3])
-            if station_ID not in temp_measurements:
-                temp_measurements[station_ID] = {year: []}
-            elif year not in temp_measurements[station_ID]:
-                temp_measurements[station_ID].update({year: []})
-            # temp_measurements = {station_ID: {year: [temperature measurements]}}
-            temp_measurements[station_ID][year].append(temperature)
             
             temp_counter[station_ID]  += 1 # maybe unecessary
-
-#   # write station ID and number of measurements in csv file     
+            temp_measurements[int(station_ID)][trunc(float(year))].append(float(temperature))
+            
+   # write station ID and number of measurements in csv file     
     
         for sid, l in station_ID_dict.items():
-            count = log(1+temp_counter[sid])/log(480)*480
+            count = temp_counter[sid]
             data_writer.writerow([sid, count, station_ID_dict[sid][0],  station_ID_dict[sid][1] ])
         if debug:
             pprint(temp_measurements)
 
-        
     outfile.close()
-
-    if debug:
-        print(f'unable to convert {new_count} items')
         
     return temp_measurements
         
@@ -148,11 +127,6 @@ def write_station_year_avg_file(measurements_dict):
         for station_ID, _v in measurements_dict.items():
             for year, average in _v.items():
                 data_writer.writerow([station_ID, year, average])
-
-
-                
-
-
 
 if __name__ == '__main__':
     station_ID_dict = make_station_ID_dict()
