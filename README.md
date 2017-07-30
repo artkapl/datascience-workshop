@@ -15,6 +15,8 @@ Link to mindmap: (https://bubbl.us/010902974515863474)
 [Github](https://github.com/) allows us to collaborate on projects.  
 [Getting started guide](https://guides.github.com/activities/hello-world/)  
 [Pythontutor](http://pythontutor.com/) allows us to visualize our code step-by-step
+[Travis-CI](https://travis-ci.org/getting_started) - for unit testing (comparing output of code versions, check differences)
+[pandas](http://pandas.pydata.org/) - A powerful data analysis module for python
 
 Data sets:
 - [Worldbank data](data.worldbank.org)
