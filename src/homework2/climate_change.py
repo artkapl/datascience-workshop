@@ -128,7 +128,7 @@ def write_station_year_avg_file(measurements_dict, outfile='../../weather_data/s
             for year, average in _v.items():
                 data_writer.writerow([station_ID, year, average])
 
-def time_sort(year_dict, start_year=1970, end_year=2001):
+def time_sort(year_dict, start_year=1980, end_year=2001):
     """
     input is dict with years in which measurements were taken as values {station_ID: {years}}
     returns dict {station_ID: bool} True if subset
@@ -138,9 +138,9 @@ def time_sort(year_dict, start_year=1970, end_year=2001):
         time_dict[station_ID] = year_dict[station_ID].issubset(range(start_year, end_year))
     return time_dict
                 
-def calc_worldwide_avg_temp_per_year(measurements_dict):
+def calc_worldwide_avg_temp_per_year(measurements_dict, filtered_list):
     """
-    input: {station_ID: {year: [measurements]}}
+    input: {station_ID: {year: [measurements]}}, list from year_filter()
     calculates worldwide average yearly temperature over all stations
     returns {year: worldwide temperature average}
     """
@@ -148,24 +148,26 @@ def calc_worldwide_avg_temp_per_year(measurements_dict):
     avg_temp_dict = dict()
     
     for station_ID, _v in measurements_dict.items():
-        for year, measurements in _v.items():
-            _t[year].extend(measurements)
+        if station_ID in filtered_list:
+            for year, measurements in _v.items():
+                _t[year].extend(measurements)
             
     for year, measurements in _t.items():
         average = sum(measurements)/len(measurements)
         avg_temp_dict[year] = average
-#    pprint(avg_temp_dict)    
+    pprint(avg_temp_dict)    
     return avg_temp_dict
         
                 
     
 
-def write_worldwide_avg_temp_per_year():
+def write_worldwide_avg_temp_per_year(filtered_station_IDs):
     """
     writes csv output file containing the worldwide yearly average temperature measurement 
     return None
     """
     pass
+    
 
 def calc_years_of_measurements(measurements_dict):
     '''
@@ -184,17 +186,21 @@ def calc_years_of_measurements(measurements_dict):
             if measurements: # if measurements not empty
                 year_dict[station_ID] |= {year}
         
-#    pprint(year_dict)
     return year_dict
+
+def year_filter(year_measurement_dict):
+    return [station for station in year_measurement_dict.keys() if year_measurement_dict[station]]
+    
                 
 if __name__ == '__main__':
     station_ID_dict = make_station_ID_dict()
     temp_measurements = make_measurement_freq_file(station_ID_dict)
     temp_avg = calc_avg(temp_measurements)
     write_station_year_avg_file(temp_avg)
-    calc_worldwide_avg_temp_per_year(temp_measurements)
-    print(time_sort(calc_years_of_measurements(temp_measurements)))
-    
+    _sorted_stations = time_sort(calc_years_of_measurements(temp_measurements))  
+    _yf = (year_filter(_sorted_stations))
+    calc_worldwide_avg_temp_per_year(temp_measurements, _yf)
+
 
     
     
