@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Jul 22 16:56:59 2017
+Created on Sun Jul 30 15:47:19 2017
 """
 # climate change project
 
@@ -57,7 +57,7 @@ def make_measurement_freq_file(station_ID_dict, outfile='station measurement fre
     """
     counts nr of measurements and temperature from infile and writes it in outfile
     input station_ID_dict, outfile, datafile
-    returns dict {station_ID: {year: measurements}}
+    returns dict {station_ID: {year: [measurements]}}
     """
     temp_measurements = defaultdict(lambda : defaultdict(list))
 
@@ -127,9 +127,40 @@ def write_station_year_avg_file(measurements_dict):
         for station_ID, _v in measurements_dict.items():
             for year, average in _v.items():
                 data_writer.writerow([station_ID, year, average])
+                
+def calc_worldwide_avg_temp_per_year(measurements_dict):
+    """
+    input: {station_ID: {year: [measurements]}}
+    calculates worldwide average yearly temperature over all stations
+    returns {year: worldwide temperature average}
+    """
+    _t = defaultdict(list)
+    avg_temp_dict = dict()
+    
+    for station_ID, _v in measurements_dict.items():
+        for year, measurements in _v.items():
+            _t[year].extend(measurements)
+            
+    for year, measurements in _t.items():
+        average = sum(measurements)/len(measurements)
+        avg_temp_dict[year] = average
+    
+    pprint(avg_temp_dict)    
+    return avg_temp_dict
+        
+                
+    
+
+def write_worldwide_avg_temp_per_year():
+    """
+    writes csv output file containing the worldwide yearly average temperature measurement 
+    return None
+    """
+    pass
 
 if __name__ == '__main__':
     station_ID_dict = make_station_ID_dict()
     temp_measurements = make_measurement_freq_file(station_ID_dict)
     temp_avg = calc_avg(temp_measurements)
     write_station_year_avg_file(temp_avg)
+    calc_worldwide_avg_temp_per_year(temp_measurements)
