@@ -173,3 +173,30 @@ if __name__ == '__main__':
     temp_avg = calc_avg(temp_measurements)
     write_station_year_avg_file(temp_avg)
     calc_worldwide_avg_temp_per_year(temp_measurements)
+
+def calc_years_of_measurements(measurements_dict):
+    '''
+    input: {station_ID: {year: [measurements]}}
+    calculates measurement years per station ID
+    returns dict {station_ID: set(years which have measurements)}
+    '''
+    
+    year_dict = dict()
+    
+    
+    for station_ID, _v in measurements_dict.items():
+        s = set()
+        year_dict[station_ID] = s
+        for year, measurements in _v.items():
+            if measurements: # if measurements not empty
+                year_dict[station_ID] |= {year}
+        
+    pprint(year_dict)
+    return year_dict
+                
+    
+    
+    
+    
+    
+    
