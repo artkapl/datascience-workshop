@@ -31,7 +31,7 @@ from math import trunc
 
 debug = False
 
-def make_station_ID_dict(infile='site_detail.csv'):
+def make_station_ID_dict(infile='../../weather_data/site_detail.csv'):
     '''
     read data from infile, create station_ID_dict {station_ID: [lat, lon, country]}
     infile = filename
@@ -39,7 +39,7 @@ def make_station_ID_dict(infile='site_detail.csv'):
     '''
     station_ID_dict = defaultdict(list)
 
-    with open('site_detail.csv') as sitefile:
+    with open(infile) as sitefile:
         site_detail_reader = csv.reader(sitefile, delimiter=';', quotechar='"')
         
         for station_ID, _t1, lat, lon, _t2, _t3, _t3, _t4, country, *_rest in site_detail_reader:
@@ -53,7 +53,7 @@ def make_station_ID_dict(infile='site_detail.csv'):
         return station_ID_dict
 
 
-def make_measurement_freq_file(station_ID_dict, outfile='station measurement frequency.csv', datafile='data.csv'):    
+def make_measurement_freq_file(station_ID_dict, outfile='../../weather_data/station measurement frequency.csv', datafile='../../weather_data/data.csv'):    
     """
     counts nr of measurements and temperature from infile and writes it in outfile
     input station_ID_dict, outfile, datafile
@@ -61,9 +61,9 @@ def make_measurement_freq_file(station_ID_dict, outfile='station measurement fre
     """
     temp_measurements = defaultdict(lambda : defaultdict(list))
 
-    outfile = open('station measurement frequency 2.csv', "w", newline='')
+    outfile = open(outfile, "w", newline='')
          
-    with open('data.csv') as datafile:
+    with open(datafile) as datafile:
         data_reader = csv.reader(datafile, delimiter=';', quotechar='"')
         data_writer = csv.writer(outfile, delimiter=',', quotechar='"')  
         data_writer.writerow(['station_ID', 'num of measurements 1961-2000', 'lat', 'lon'])
@@ -114,19 +114,29 @@ def calc_avg(measurements_dict):
     return temp_averages
     
     
-def write_station_year_avg_file(measurements_dict):
+def write_station_year_avg_file(measurements_dict, outfile='../../weather_data/station_year_avg.csv'):
     """
     writes csv output file containing the yearly average temperature measurement / station
     return None
     """
 
-    with open('station_year_avg.csv', "w", newline='') as f:
+    with open(outfile, "w", newline='') as f:
         data_writer = csv.writer(f, delimiter=',', quotechar='"')
         data_writer.writerow(['station_ID', 'year', 'average temperature'])
 
         for station_ID, _v in measurements_dict.items():
             for year, average in _v.items():
                 data_writer.writerow([station_ID, year, average])
+
+def time_sort(year_dict, start_year=1970, end_year=2001):
+    """
+    input is dict with years in which measurements were taken as values {station_ID: {years}}
+    returns dict {station_ID: bool} True if subset
+    """
+    time_dict = dict()
+    for station_ID in year_dict.keys():
+        time_dict[station_ID] = year_dict[station_ID].issubset(range(start_year, end_year))
+    return time_dict
                 
 def calc_worldwide_avg_temp_per_year(measurements_dict):
     """
@@ -144,8 +154,7 @@ def calc_worldwide_avg_temp_per_year(measurements_dict):
     for year, measurements in _t.items():
         average = sum(measurements)/len(measurements)
         avg_temp_dict[year] = average
-    
-    pprint(avg_temp_dict)    
+#    pprint(avg_temp_dict)    
     return avg_temp_dict
         
                 
